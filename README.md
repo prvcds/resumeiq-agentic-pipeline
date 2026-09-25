@@ -24,7 +24,6 @@ flowchart TD
     
     J -->|File Export| K["output/*.json | *.pdf"]
     J -->|Mock SMTP| L[Console Log]
-  ```
 
 The application is structured into the following key components:
 1. **Mock Data Ingestion (`parsing.py`)**: Loads a realistic mock candidate resume (deliberately including grey areas like an ambiguous title and an employment gap) and validates it against a typed Pydantic schema (`models.py`). To support real PDF/OCR upload, only `load_candidate()` needs to be swapped.
