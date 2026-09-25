@@ -2,8 +2,7 @@
 
 A web-based agentic recruitment pipeline that ingests a candidate's profile, grounds a natural-language Q&A layer against verifiable facts, and runs an autonomous, multi-step evaluation workflow to dispatch a structured hiring assessment.
 
-
-### System Architecture
+## System Architecture
 
 ResumeIQ follows a deterministic, multi-step recruitment pipeline.
 
