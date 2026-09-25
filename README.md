@@ -8,21 +8,18 @@ ResumeIQ is built to prioritize **determinism, auditability, and hallucination r
 
 ```mermaid
 flowchart TD
-    A[Mock JSON] -->|Ingestion Seam| B(parsing.py)
-    B -->|Pydantic Model| C[(Candidate Object)]
-    
-    C -->|Pre-compute Timeline| D[qa_engine.py]
+    A["Mock JSON"] -->|Ingestion Seam| B["parsing.py"]
+    B -->|Pydantic Model| C[("Candidate Object")]
+    C -->|Pre-compute Timeline| D["qa_engine.py"]
     D <-->|Grounded QA| Recruiter
-    
-    C -->|Extract & Timeline| E[agent_workflow.py]
-    E --> F[1. Extract]
-    F --> G[2. Map]
-    G --> H[3. Flag]
-    H --> I[4. Recommend]
-    I --> J[5. Dispatch]
-    
-    J -->|File Export| K["output/*.json | *.pdf"]
-    J -->|Mock SMTP| L[Console Log]
+    C -->|Extract & Timeline| E["agent_workflow.py"]
+    E --> F["1. Extract"]
+    F --> G["2. Map"]
+    G --> H["3. Flag"]
+    H --> I["4. Recommend"]
+    I --> J["5. Dispatch"]
+    J -->|File Export| K["output/*.json and *.pdf"]
+    J -->|Mock SMTP| L["Console Log"]
 ```
 
 The application is structured into the following key components:
