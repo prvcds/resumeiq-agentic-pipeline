@@ -6,7 +6,6 @@ A web-based agentic recruitment pipeline that ingests a candidate's profile, gro
 
 ResumeIQ is built to prioritize **determinism, auditability, and hallucination resistance**. Rather than feeding a raw PDF into an LLM and hoping for the best, the system extracts the data into a typed schema and performs critical logic (like date arithmetic and red flag detection) in deterministic code *before* involving the LLM.
 
-```markdown
 ```mermaid
 flowchart TD
     A[Mock JSON] -->|Ingestion Seam| B(parsing.py)
@@ -24,6 +23,7 @@ flowchart TD
     
     J -->|File Export| K["output/*.json | *.pdf"]
     J -->|Mock SMTP| L[Console Log]
+```
 
 The application is structured into the following key components:
 1. **Mock Data Ingestion (`parsing.py`)**: Loads a realistic mock candidate resume (deliberately including grey areas like an ambiguous title and an employment gap) and validates it against a typed Pydantic schema (`models.py`). To support real PDF/OCR upload, only `load_candidate()` needs to be swapped.
