@@ -6,23 +6,17 @@ A web-based agentic recruitment pipeline that ingests a candidate's profile, gro
 
 ResumeIQ is built to prioritize **determinism, auditability, and hallucination resistance**. Rather than feeding a raw PDF into an LLM and hoping for the best, the system extracts the data into a typed schema and performs critical logic (like date arithmetic and red flag detection) in deterministic code *before* involving the LLM.
 
-
 ```mermaid
-flowchart TD
-    A["Mock JSON"] -->|Ingestion Seam| B["parsing.py"]
-    B -->|Pydantic Model| C[("Candidate Object")]
-    C -->|Pre-compute Timeline| D["qa_engine.py"]
-    D <-->|Grounded QA| R["Recruiter"]
-
-    C -->|Extract & Timeline| E["agent_workflow.py"]
-    E --> F["1. Extract"]
-    F --> G["2. Map"]
-    G --> H["3. Flag"]
-    H --> I["4. Recommend"]
-    I --> J["5. Dispatch"]
-
-    J -->|File Export| K["Output JSON and PDF"]
-    J -->|Mock SMTP| L["Console Log"]
+graph TD
+    A[Mock JSON] --> B[Parsing]
+    B --> C[Candidate Object]
+    C --> D[QA Engine]
+    C --> E[Agent Workflow]
+    E --> F[Extract]
+    F --> G[Map]
+    G --> H[Flag]
+    H --> I[Recommend]
+    I --> J[Dispatch]
 ```
 
 The application is structured into the following key components:
