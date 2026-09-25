@@ -1,0 +1,97 @@
+{
+  "full_name": "Arjun Mehta",
+  "email": "arjun.mehta@protonmail.com",
+  "phone": "+1-415-555-0147",
+  "location": "San Francisco, CA",
+  "linkedin": "linkedin.com/in/arjunmehta-swe",
+  "summary": "Platform engineer with 6+ years of hands-on experience building and scaling distributed systems across cloud providers. Background spans backend services, infrastructure automation, and cross-functional technical leadership in both product and consulting environments.",
+  "education": [
+    {
+      "institution": "Indian Institute of Technology, Bombay",
+      "degree": "Bachelor of Technology",
+      "field": "Computer Science and Engineering",
+      "start_date": "2011-07",
+      "end_date": "2015-05",
+      "gpa": "8.4/10.0",
+      "notes": null
+    },
+    {
+      "institution": "Stanford University (Online via Coursera)",
+      "degree": "Professional Certificate",
+      "field": "Machine Learning Specialization",
+      "start_date": "2020-03",
+      "end_date": "2020-09",
+      "gpa": null,
+      "notes": "Completed during career transition period"
+    }
+  ],
+  "skills": [
+    "Python",
+    "Java",
+    "Go",
+    "TypeScript",
+    "AWS (EC2, S3, Lambda, EKS, CloudFormation)",
+    "Google Cloud Platform (GKE, BigQuery, Cloud Run)",
+    "Docker",
+    "Kubernetes",
+    "Terraform",
+    "Helm",
+    "PostgreSQL",
+    "Redis",
+    "Apache Kafka",
+    "React",
+    "FastAPI",
+    "gRPC",
+    "CI/CD (Jenkins, GitHub Actions, ArgoCD)",
+    "Prometheus",
+    "Grafana",
+    "Datadog",
+    "Agile/Scrum",
+    "Technical Writing"
+  ],
+  "employment": [
+    {
+      "company": "ScaleGrid Systems",
+      "title": "Senior Platform Engineer",
+      "start_date": "2021-03",
+      "end_date": "2024-08",
+      "location": "San Francisco, CA",
+      "description": "Led the platform engineering team (4 engineers) responsible for Kubernetes-based deployment infrastructure serving 2M+ daily active users. Designed and implemented a zero-downtime migration from EC2-based deployments to EKS, reducing infrastructure costs by 35%. Built internal developer tooling for service provisioning, deployment pipelines, and observability dashboards. Drove adoption of Infrastructure-as-Code practices using Terraform and Helm across 12 engineering teams. Mentored two junior engineers through promotion cycles."
+    },
+    {
+      "company": "InnovateLabs Consulting",
+      "title": "Technology Generalist",
+      "start_date": "2017-06",
+      "end_date": "2019-04",
+      "location": "Bangalore, India",
+      "description": "Worked across multiple client engagements spanning web application development, data pipeline construction, and infrastructure advisory. Responsibilities varied by engagement and included frontend prototyping, API design, database optimization, cloud migration planning, and direct stakeholder communication. Operated in a fluid role without fixed specialization, adapting technical focus to client needs on 3-to-6-month project cycles."
+    },
+    {
+      "company": "Nexus Technologies",
+      "title": "Software Engineer",
+      "start_date": "2015-07",
+      "end_date": "2017-05",
+      "location": "Pune, India",
+      "description": "Developed and maintained backend services for the company's B2B SaaS platform using Java and Spring Boot. Implemented RESTful APIs consumed by 50+ enterprise clients. Contributed to a PostgreSQL query optimization initiative that reduced average API response times by 40%. Participated in on-call rotation and incident response for production systems serving 500K+ monthly transactions."
+    }
+  ],
+  "certifications": [
+    {
+      "name": "AWS Certified Solutions Architect - Associate",
+      "issuer": "Amazon Web Services",
+      "date": "2021-06"
+    },
+    {
+      "name": "Certified Kubernetes Administrator (CKA)",
+      "issuer": "Cloud Native Computing Foundation",
+      "date": "2022-01"
+    }
+  ],
+  "projects": [
+    {
+      "name": "KubeFlow Deployer",
+      "description": "Open-source CLI tool for templating and deploying ML pipeline components to Kubernetes clusters. Adopted by three startups for internal ML workflows. 200+ GitHub stars.",
+      "technologies": ["Python", "Kubernetes", "Docker", "Helm"]
+    }
+  ]
+}
