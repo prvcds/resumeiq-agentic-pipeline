@@ -2,29 +2,53 @@
 
 A web-based agentic recruitment pipeline that ingests a candidate's profile, grounds a natural-language Q&A layer against verifiable facts, and runs an autonomous, multi-step evaluation workflow to dispatch a structured hiring assessment.
 
-## System Design
 
-ResumeIQ is built to prioritize **determinism, auditability, and hallucination resistance**. Rather than feeding a raw PDF into an LLM and hoping for the best, the system extracts the data into a typed schema and performs critical logic (like date arithmetic and red flag detection) in deterministic code *before* involving the LLM.
+### System Architecture
 
-```mermaid
-graph TD
-    A[Mock JSON] --> B[Parsing]
-    B --> C[Candidate Object]
-    C --> D[QA Engine]
-    C --> E[Agent Workflow]
-    E --> F[Extract]
-    F --> G[Map]
-    G --> H[Flag]
-    H --> I[Recommend]
-    I --> J[Dispatch]
+ResumeIQ follows a deterministic, multi-step recruitment pipeline.
+
+**1. Data Ingestion**
+- Mock JSON → `parsing.py`
+- Validates data using Pydantic → `Candidate Object`
+
+**2. Candidate Processing**
+- Candidate Object → Pre-computed Employment Timeline
+- Candidate Object → `qa_engine.py` for grounded recruiter Q&A
+- Candidate Object → `agent_workflow.py` for evaluation
+
+**3. Agentic Evaluation Pipeline**
+
+```text
+Candidate Object
+       |
+       v
+  1. Extract
+       |
+       v
+    2. Map
+       |
+       v
+    3. Flag
+       |
+       v
+ 4. Recommend
+       |
+       v
+  5. Dispatch
+       |
+       v
+  JSON / PDF Export
+       |
+       v
+   Console Log
+   (Mock SMTP)
 ```
 
-The application is structured into the following key components:
-1. **Mock Data Ingestion (`parsing.py`)**: Loads a realistic mock candidate resume (deliberately including grey areas like an ambiguous title and an employment gap) and validates it against a typed Pydantic schema (`models.py`). To support real PDF/OCR upload, only `load_candidate()` needs to be swapped.
-2. **Natural Language Q&A (`qa_engine.py`)**: Enables a recruiter to ask questions about the candidate using a highly constrained, anti-hallucination prompt.
-3. **Agentic Pipeline (`agent_workflow.py`)**: An auditable, 5-step pipeline that maps the data, flags concerns, generates a role recommendation, and dispatches the final form.
-4. **FastAPI & UI**: A backend serving REST routes for Q&A and evaluation, with a lightweight, single-page HTML frontend.
-
+**4. Recruiter Interaction**
+- Recruiter asks a question → `qa_engine.py`
+- Answers are grounded in verified candidate data.
+- Missing information is explicitly identified rather than invented.
+  
 ## Prompt Strategy
 
 The single most important reliability decision in this application is **separating deterministic calculations from generative inference.**
